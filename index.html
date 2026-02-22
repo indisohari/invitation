@@ -158,7 +158,9 @@
     /* 모달 및 토스트 */
     .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); justify-content: center; align-items: center; }
     .modal-img { max-width: 100%; max-height: 90%; }
-    .modal-close { position: absolute; top: 15px; right: 15px; color: #fff; font-size: 40px; cursor: pointer; font-weight: 300; z-index: 2001; padding: 15px; line-height: 1;}
+    .modal-close {background: transparent;
+border: 0;
+appearance: none; position: absolute; top: 15px; right: 15px; color: #fff; font-size: 40px; cursor: pointer; font-weight: 300; z-index: 2001; padding: 15px; line-height: 1;}
     
     .toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(45px + env(safe-area-inset-bottom)); background: rgba(30,30,30,0.95); color: #fff; padding: 15px 22px; border-radius: 30px; font-size: 14.5px; z-index: 3000; font-weight: 400; width: auto; max-width: calc(100vw - 40px); word-break: keep-all; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); margin-bottom: -15px; }
     .toast.show { opacity: 1; margin-bottom: 0; }
@@ -254,7 +256,7 @@
         </div>
 
         <div class="bus-list">
-          <p class="detail-desc" style="margin-bottom: 5px;"><b>🚌 남산맨션아파트, 남산예술원 하차 (도보 5분)</b></p>
+          <p class="detail-desc" style="margin-bottom: 5px;"><b>🚌 남산맨션아파트·남산예술원 하차 (도보 5분)</b></p>
           <span class="stop-badge">정류소 03159</span>
           <p class="detail-desc" style="color: #333; font-weight: 500; font-size: 15.5px;">402, 405</p>
         </div>
@@ -266,13 +268,13 @@
         </div>
 
         <div class="bus-list">
-          <p class="detail-desc" style="margin-bottom: 5px;"><b>🚌 한강진역. 블루스퀘어 하차 (도보 10분)</b></p>
+          <p class="detail-desc" style="margin-bottom: 5px;"><b>🚌 한강진역·블루스퀘어 하차 (도보 10분)</b></p>
           <span class="stop-badge">정류소 03196, 03197</span>
           <p class="detail-desc" style="color: #333; font-weight: 500; font-size: 15.5px;">110B, 400, 405</p>
         </div>
 
         <div class="bus-list" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
-          <p class="detail-desc" style="margin-bottom: 5px;"><b>🚌 서울중부기술교육원. 블루스퀘어 하차 (도보 12분)</b></p>
+          <p class="detail-desc" style="margin-bottom: 5px;"><b>🚌 서울중부기술교육원·블루스퀘어 하차 (도보 12분)</b></p>
           <span class="stop-badge">정류소 03160, 03161</span>
           <p class="detail-desc" style="color: #333; font-weight: 500; font-size: 15.5px;">142, 144, 402, 420, 3011, 6211</p>
         </div>
@@ -280,14 +282,14 @@
 
       <div class="notice-box">
         <p>📢 식장 이용 안내</p>
-        <p>
-          예식장 방침상 <b class="notice-strong">화환 반입이 금지</b>되며,<br>
-          본 청첩장을 보여주시면 입장이 원활합니다.
-        </p>
-        <p style="margin-top: 18px;">
-          예식장 내 및 인근에는<br>
-          <b class="notice-strong">현금인출기(ATM)가 없으니</b> 미리 준비해 주시기 바랍니다.
-        </p>
+     <p>
+  예식장 방침에 따라 <b class="notice-strong">화환 반입이 불가하며</b>,<br>
+  원활한 입장 안내를 위해 <b class="notice-strong">청첩장 확인</b>이 필요합니다.
+</p>
+<p style="margin-top: 18px;">
+  예식장 내부와 인근에는<br>
+  <b class="notice-strong">현금인출기(ATM)가 없으니</b> 참고 부탁드립니다.
+</p>
       </div>
     </section>
 
@@ -413,7 +415,7 @@
   </div>
 
   <div id="imageModal" class="modal" onclick="closeModal()" role="dialog" aria-modal="true" aria-label="사진 확대 보기">
-    <span class="modal-close">×</span>
+<button type="button" class="modal-close" aria-label="사진 닫기">×</button>
     <img class="modal-img" id="fullImage" alt="확대된 웨딩 사진" onclick="event.stopPropagation()">
   </div>
   <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
@@ -540,7 +542,7 @@
       })
       .then(function(response) {
         // [개선] 따뜻하고 부드러운 토스트 알림으로 변경
-        toast("감사합니다! 참석 정보가 잘 전달되었습니다");
+        toast("감사합니다! 참석 정보가 전송되었습니다");
         
         sideSelect.value = "";
         sideSelect.style.color = '#aaa';
