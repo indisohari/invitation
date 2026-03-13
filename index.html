@@ -69,12 +69,13 @@
     .names { font-size: 27px; margin-bottom: 12px; letter-spacing: 1px; line-height: 1.4; color: #111; font-weight: 400; }
 
     /* 메인 사진은 확대 기능 제거 (보기 전용) */
-    .main-photo-frame {
+  .main-photo-frame {
       width: 100%;
       margin: 0;
       aspect-ratio: 4 / 3;
       overflow: hidden;
       border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.06); /* 👈 이 한 줄을 추가했습니다! (아주 연한 회색 선) */
       animation: fadeUpLoad 1.2s ease-out 0.3s forwards;
       opacity: 0;
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
